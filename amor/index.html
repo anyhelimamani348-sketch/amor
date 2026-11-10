@@ -1,0 +1,1275 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Universe ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #050914;
+    --dark: #0a1427;
+    --card: #101f38;
+    --blue: #4388ed;
+    --light-blue: #8dbbff;
+    --silver: #d5e4ff;
+    --text: #e8efff;
+    --muted: #a4b6d2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+button, a {
+    font-family: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* BACKGROUND STARS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    color: #a5c9ff;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .15; transform: scale(.7); }
+    to { opacity: .9; transform: scale(1.3); }
+}
+
+/* HEADER */
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    color: white;
+}
+
+.logo span {
+    color: var(--light-blue);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #bdcce4;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 780px;
+    height: 100vh;
+    max-height: 1000px;
+    padding: 120px 10% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 80% 45%, #174c91 0%, transparent 32%),
+        radial-gradient(circle at 20% 90%, #101f43, transparent 40%),
+        linear-gradient(130deg, #030711, #09152b 60%, #102b55);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    border: 1px solid #8dbbff22;
+    border-radius: 50%;
+    right: -100px;
+    top: 100px;
+    box-shadow: 0 0 0 60px #8dbbff08,
+                0 0 0 120px #8dbbff05;
+}
+
+.hero-content {
+    width: 55%;
+    position: relative;
+    z-index: 2;
+    animation: appear 1.2s ease;
+}
+
+.eyebrow {
+    color: var(--light-blue);
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: .95;
+    margin: 28px 0;
+    font-weight: 500;
+}
+
+.hero h1 i {
+    color: #8dbbff;
+}
+
+.hero-content p {
+    font-size: 13px;
+    line-height: 2;
+    color: #c0cde1;
+    margin-bottom: 30px;
+}
+
+.hero-date {
+    color: #91baff;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.main-button {
+    border: 1px solid #75aaff;
+    background: #ffffff0b;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: .4s;
+}
+
+.main-button:hover {
+    background: #4388ed;
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px #4388ed66;
+}
+
+.hero-image {
+    width: 38%;
+    height: 440px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(4deg);
+    border: 10px solid #dceaff;
+    background: #152b4c;
+    box-shadow: 20px 25px 60px #0009;
+    animation: float 5s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #f2efe9;
+    display: block;
+}
+
+.hero-placeholder {
+    color: #9fc4ff;
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-note {
+    position: absolute;
+    bottom: -38px;
+    right: 0;
+    color: #b5d2ff;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #ffffff70;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0%,100% { transform: translateY(0) rotate(4deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* GENERAL */
+
+section:not(.hero) {
+    padding: 110px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading span {
+    color: var(--light-blue);
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 53px);
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.section-heading h2 i {
+    color: #83b3ff;
+}
+
+/* LETTER */
+
+.letter-section {
+    background:
+        radial-gradient(circle at 80% 30%, #142d52, transparent 45%),
+        #0a1427;
+    text-align: center;
+}
+
+.letter-paper {
+    max-width: 700px;
+    margin: auto;
+    background: linear-gradient(145deg, #14233e, #0d192e);
+    padding: 55px 60px;
+    text-align: left;
+    box-shadow: 0 20px 70px #0007;
+    position: relative;
+    transform: rotate(-1deg);
+    border: 1px solid #43618a;
+}
+
+.letter-paper::before {
+    content: "♡";
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    color: var(--light-blue);
+}
+
+.letter-top {
+    display: flex;
+    justify-content: space-between;
+    color: #9bc3ff;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.letter-content {
+    font-size: 12px;
+    line-height: 2.3;
+    color: #d0dced;
+}
+
+.letter-content p {
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    color: #91baff;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.letter-footer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #a9cbff;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+.letter-footer img {
+    width: 140px;
+    height: 110px;
+    object-fit: contain;
+}
+
+.letter-poster {
+    width: min(100%, 520px);
+    margin: 25px auto 0;
+    display: block;
+    border: 1px solid #496a9c;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.final-poster {
+    width: min(100%, 760px);
+    margin: 25px auto 0;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+}
+
+/* COUNTER */
+
+.counter-section {
+    background:
+        radial-gradient(circle at center, #10294e, #030711 75%);
+    text-align: center;
+}
+
+.counter-section > span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--light-blue);
+}
+
+.counter-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 20px 0 55px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 6vw, 75px);
+    flex-wrap: wrap;
+}
+
+.counter div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.counter strong {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 6vw, 65px);
+    color: #83b3ff;
+    font-weight: 500;
+    text-shadow: 0 0 25px #4388ed55;
+}
+
+.counter small {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a8bddb;
+}
+
+/* MUSIC */
+
+.music-section {
+    background: #080e1b;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.song {
+    aspect-ratio: 1;
+    min-height: 0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    transition: .4s;
+    box-shadow: 0 15px 40px #0005;
+    border: 1px solid #ffffff14;
+    background: #101f38;
+}
+
+.song img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.music-play-button {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.music-play-button span {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(5, 9, 20, 0.78);
+    border: 1px solid rgba(255,255,255,0.75);
+    font-size: 25px;
+    opacity: 0;
+    transform: scale(.85);
+    transition: .2s ease;
+}
+
+.song:hover .music-play-button span,
+.music-play-button:focus-visible span,
+.song.is-playing .music-play-button span {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.music-play-button:focus-visible {
+    outline: 3px solid var(--light-blue);
+    outline-offset: -5px;
+}
+
+.song:hover {
+    transform: translateY(-12px) rotate(-1deg);
+    box-shadow: 0 20px 40px #4388ed30;
+}
+
+.song-red {
+    background: linear-gradient(145deg, #102d58, #1d5798);
+    color: white;
+}
+
+.song-gold {
+    background: linear-gradient(145deg, #111d36, #294a78);
+    color: white;
+}
+
+.song-blue {
+    background: linear-gradient(145deg, #101c36, #315f9e);
+    color: white;
+}
+
+.song-number {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #d5e4ff;
+}
+
+.song-decoration {
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    font-size: 110px;
+    opacity: .12;
+}
+
+.song h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    line-height: 1.4;
+    max-width: 230px;
+    position: relative;
+    z-index: 1;
+}
+
+.song p {
+    font-size: 11px;
+    margin-top: 10px;
+    color: #d1e1fa;
+}
+
+.song a {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-top: 1px solid #ffffff35;
+    padding-top: 20px;
+    margin-top: 25px;
+    color: white;
+}
+
+/* MEMORIES */
+
+.memories-section {
+    background:
+        radial-gradient(circle at 20% 50%, #112b50, transparent 50%),
+        #0a1427;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.photo {
+    width: min(360px, 40vw);
+    background: #14233d;
+    padding: 12px 12px 35px;
+    box-shadow: 0 15px 35px #0006;
+    cursor: pointer;
+    transition: .4s;
+    border: 1px solid #45638c;
+    transform: rotate(0deg);
+}
+
+.photo:hover {
+    transform: scale(1.03);
+    z-index: 2;
+    box-shadow: 0 15px 45px #4388ed55;
+}
+
+.photo img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: #142b4e;
+}
+
+.photo span {
+    display: block;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 15px;
+    color: #dceaff;
+}
+
+
+/* FINAL */
+
+.final-section {
+    background:
+        radial-gradient(circle at center, #164b91, #030711 75%);
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 75px);
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.final-section h2 i {
+    color: #91baff;
+}
+
+.final-section p {
+    font-size: 12px;
+    color: #c4d5ef;
+    line-height: 2;
+}
+
+.final-heart {
+    font-size: 45px;
+    color: #80b3ff;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #020611ee;
+    z-index: 50;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #142139;
+    border: 1px solid #42669b;
+    max-width: 420px;
+    width: 100%;
+    padding: 45px 35px;
+    text-align: center;
+    animation: appear .5s;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #91baff;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 12px;
+    line-height: 2;
+    color: #d0dced;
+}
+
+.close-modal {
+    margin-top: 25px;
+    background: #2868bb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* IMAGE VIEWER */
+
+.viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: #020611ee;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.viewer.active {
+    display: flex;
+}
+
+.viewer img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.viewer button {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    border: none;
+    color: white;
+    background: transparent;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+
+    header {
+        padding: 20px 6%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    .hero {
+        min-height: 850px;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding: 130px 7% 100px;
+        gap: 50px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 75%;
+        max-width: 330px;
+        height: 330px;
+    }
+
+    .hero-bottom {
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    section:not(.hero) {
+        padding: 80px 7%;
+    }
+
+    .letter-paper {
+        padding: 40px 25px;
+    }
+
+    .music-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .song {
+        min-height: 0;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .photo img {
+        height: 190px;
+    }
+}
+
+@media(max-width: 430px) {
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav {
+        gap: 9px;
+    }
+
+    nav a {
+        font-size: 8px;
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photo img {
+        height: 150px;
+    }
+
+    .photo span {
+        font-size: 12px;
+    }
+
+    .counter {
+        gap: 25px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ESTRELLAS -->
+
+<div class="stars" id="stars"></div>
+
+<!-- HEADER -->
+
+<header>
+    <a href="#" class="logo">♡ our <span>story</span></a>
+
+    <nav>
+        <a href="#carta">CARTA</a>
+        <a href="#musica">MÚSICA</a>
+        <a href="#recuerdos">RECUERDOS</a>
+    </nav>
+</header>
+
+<!-- PORTADA -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">A LITTLE GIFT FOR YOU</span>
+
+        <h1>Our Little<br><i>Universe</i></h1>
+
+        <p>
+            Un pequeño universo creado especialmente
+            para guardar nuestra historia.
+        </p>
+
+        <div class="hero-date">14 · 08 · 2026</div>
+
+        <button class="main-button" onclick="openLetter()">
+            Abrir nuestro regalo ♡
+        </button>
+
+    </div>
+
+    <div class="hero-image" id="heroImage">
+        <img src="./portada.jpg" alt="Nuestra pequeña historia">
+    </div>
+
+    <div class="hero-bottom">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+<!-- CARTA -->
+
+<section class="letter-section" id="carta">
+
+    <div class="section-heading">
+        <span>01 — A LETTER FOR YOU</span>
+        <h2>Unas palabras <i>para ti</i></h2>
+    </div>
+
+    <div class="letter-paper">
+
+        <div class="letter-top">
+            <span>Mi amor:</span>
+            <span>♡</span>
+        </div>
+
+        <div class="letter-content">
+
+            <p>
+                Hoy cumplimos 3 meses juntos, y aunque parezca
+                poco tiempo, para mí ha sido un tiempo muy especial,
+                lleno de momentos bonitos, risas, aprendizajes
+                y mucho amor.
+            </p>
+
+            <p>
+                Me alegra muchísimo el día en que nos conocimos.
+                Desde ese momento todo cambió, porque llegaste
+                a mi vida y todo se siente más bonito, más ligero
+                y más especial.
+            </p>
+
+            <p>
+                En estos meses he descubierto lo increíble
+                que eres, lo mucho que me haces reír, lo bien
+                que me tratas y lo mucho que me importas.
+            </p>
+
+            <p class="signature">
+                Con todo mi cariño,<br>
+                para ti. ♡
+            </p>
+
+        </div>
+
+        <div class="letter-footer">
+            <span>¡Felices 3 meses, mi amor! ♡</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTADOR -->
+
+<section class="counter-section">
+
+    <span>EVERY MOMENT WITH YOU</span>
+
+    <h2>Y nuestra historia continúa...</h2>
+
+    <div class="counter">
+
+        <div>
+            <strong id="days">000</strong>
+            <small>DÍAS</small>
+        </div>
+
+        <div>
+            <strong id="hours">00</strong>
+            <small>HORAS</small>
+        </div>
+
+        <div>
+            <strong id="minutes">00</strong>
+            <small>MINUTOS</small>
+        </div>
+
+        <div>
+            <strong id="seconds">00</strong>
+            <small>SEGUNDOS</small>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MÚSICA -->
+
+<section class="music-section" id="musica">
+
+    <div class="section-heading">
+        <span>02 — OUR SOUNDTRACK</span>
+        <h2>Canciones que me <i>recuerdan a ti</i></h2>
+    </div>
+
+    <div class="music-grid">
+
+        <article class="song song-red">
+            <img src="./WhatsApp Image 2026-11-09 at 20.08.06 (1).jpeg" alt="Portada de M.A.I, Milo J">
+            <audio src="./mai.mpeg" preload="none"></audio>
+            <button class="music-play-button" type="button" aria-label="Reproducir M.A.I de Milo J"><span aria-hidden="true">▶</span></button>
+        </article>
+
+        <article class="song song-gold">
+            <img src="./WhatsApp Image 2026-11-09 at 20.08.07 (1).jpeg" alt="Portada de Flaco, Mon Laferte">
+            <audio src="./flaco.mpeg" preload="none"></audio>
+            <button class="music-play-button" type="button" aria-label="Reproducir Flaco de Mon Laferte"><span aria-hidden="true">▶</span></button>
+        </article>
+
+        <article class="song song-blue">
+            <img src="./WhatsApp Image 2026-11-09 at 20.08.07.jpeg" alt="Portada de Committed, Rauw Alejandro y Pharrell Williams">
+            <audio src="./comitted.mpeg" preload="none"></audio>
+            <button class="music-play-button" type="button" aria-label="Reproducir Committed de Rauw Alejandro y Pharrell Williams"><span aria-hidden="true">▶</span></button>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- RECUERDOS -->
+
+<section class="memories-section" id="recuerdos">
+
+    <div class="section-heading">
+        <span>03 — OUR MEMORIES</span>
+        <h2>Pequeños momentos, <i>grandes recuerdos</i></h2>
+    </div>
+
+    <div class="gallery" id="gallery">
+
+        <div class="photo">
+            <img src="./WhatsApp Image 2026-11-09 at 20.08.07 (2).jpeg"
+                 alt="Recuerdo 1">
+            <span>Mi amor ♡</span>
+        </div>
+
+        <div class="photo">
+            <img src="./WhatsApp Image 2026-11-09 at 20.08.08.jpeg"
+                 alt="Recuerdo 2">
+            <span>Feliz 3 meses</span>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final-section">
+
+    <div class="final-heart">♡</div>
+
+    <span class="eyebrow">TO MY FAVORITE PERSON</span>
+
+    <h2>You are my <i>favorite place.</i></h2>
+
+    <p>
+        Gracias por formar parte de mi historia.<br>
+        Que sigamos creando muchos recuerdos juntos.
+    </p>
+
+    <div style="margin-top:35px; font-size:12px; color:#91baff;">
+        WITH LOVE, ALWAYS ♡
+    </div>
+
+</section>
+
+<!-- MODAL -->
+
+<div class="modal" id="letterModal">
+
+    <div class="modal-content">
+
+        <h2>Una pequeña sorpresa ♡</h2>
+
+        <p>
+            No sé cómo explicar lo bonito que es tenerte
+            en mi vida. Cada momento contigo se convierte
+            en un recuerdo que quiero guardar.
+            <br><br>
+            Gracias por estos tres meses y por todos
+            los momentos que todavía nos esperan.
+            <br><br>
+            Te quiero muchísimo.
+        </p>
+
+        <button class="close-modal" onclick="closeLetter()">
+            Cerrar ♡
+        </button>
+
+    </div>
+
+</div>
+
+<!-- VISOR DE FOTOS -->
+
+<div class="viewer" id="viewer" onclick="closeViewer()">
+
+    <button onclick="closeViewer()">×</button>
+
+    <img id="viewerImage" src="" alt="Fotografía ampliada">
+
+</div>
+
+<script>
+
+// GENERAR ESTRELLAS
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.textContent = Math.random() > .5 ? "✦" : "·";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.fontSize = (8 + Math.random() * 13) + "px";
+    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+// CONTADOR
+
+const startDate = new Date(2026, 7, 14, 0, 0, 0);
+
+function updateCounter() {
+
+    const now = new Date();
+    let difference = now - startDate;
+
+    if (difference < 0) difference = 0;
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference / 3600000) % 24);
+    const minutes = Math.floor((difference / 60000) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+
+// MODAL DE CARTA
+
+function openLetter() {
+    document.getElementById("letterModal").classList.add("active");
+}
+
+function closeLetter() {
+    document.getElementById("letterModal").classList.remove("active");
+}
+
+
+// REPRODUCIR CANCIONES
+
+document.querySelectorAll(".song").forEach(function(card) {
+    const audio = card.querySelector("audio");
+    const button = card.querySelector(".music-play-button");
+    const icon = button.querySelector("span");
+
+    button.addEventListener("click", async function() {
+        if (!audio.paused) {
+            audio.pause();
+            return;
+        }
+
+        document.querySelectorAll(".song audio").forEach(function(otherAudio) {
+            if (otherAudio !== audio) {
+                otherAudio.pause();
+                otherAudio.closest(".song").classList.remove("is-playing");
+                const otherButton = otherAudio.closest(".song").querySelector(".music-play-button");
+                otherButton.querySelector("span").textContent = "▶";
+                otherButton.setAttribute("aria-label", otherButton.getAttribute("aria-label").replace("Pausar", "Reproducir"));
+            }
+        });
+
+        try {
+            await audio.play();
+        } catch (error) {
+            console.error("No se pudo reproducir la canción:", error);
+            button.setAttribute("aria-label", "No se pudo reproducir la canción");
+        }
+    });
+
+    audio.addEventListener("play", function() {
+        card.classList.add("is-playing");
+        icon.textContent = "❚❚";
+        button.setAttribute("aria-label", button.getAttribute("aria-label").replace("Reproducir", "Pausar"));
+    });
+
+    audio.addEventListener("pause", function() {
+        card.classList.remove("is-playing");
+        icon.textContent = "▶";
+        button.setAttribute("aria-label", button.getAttribute("aria-label").replace("Pausar", "Reproducir"));
+    });
+
+    audio.addEventListener("ended", function() {
+        card.classList.remove("is-playing");
+        icon.textContent = "▶";
+        button.setAttribute("aria-label", button.getAttribute("aria-label").replace("Pausar", "Reproducir"));
+    });
+});
+
+
+// AMPLIAR FOTOGRAFÍAS
+
+gallery.addEventListener("click", function(event) {
+
+    if (event.target.tagName === "IMG") {
+
+        document.getElementById("viewerImage").src =
+            event.target.src;
+
+        document.getElementById("viewer").classList.add("active");
+
+    }
+
+});
+
+function closeViewer() {
+    document.getElementById("viewer").classList.remove("active");
+}
+
+
+// CERRAR VENTANAS CON ESCAPE
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeLetter();
+        closeViewer();
+    }
+
+});
+// CORAZONES FLOTANTES
+
+const heartContainer = document.getElementById("floatingHearts");
+
+function createFloatingHeart() {
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (13 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (7 + Math.random() * 5) + "s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 12500);
+}
+
+setInterval(createFloatingHeart, 850);
+
+</script>
+
+</body>
+</html>
